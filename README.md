@@ -1,14 +1,39 @@
-# Name of exercise
+# Randomness Bug
 
-Add basic setup here.
+You work at a big company.  This company has a web app that can upload CSV files.  Your job is to produce CSV files 
+that can be uploaded by Quality Assurance testers.
+
+You inherited some code that generates an array-of-arrays, suitable for creating a CSV.  This code is *supposed* to:
+
+* Take a number (let's say 100)
+* Generate 100 rows
+* Each row has a unique person's name
+* For every two people, there's one company (in no particular order)
+
+So if you generated 100 rows, there would be 50 unique companies.
+If you generated 50 rows, there would be 25 unique companies.
+
+Your Quality Assurance comrades have told you that the code is not
+working - there are too many companies every time.  The bug report is:
+
+"If I try to generate 100 rows, sometimes there are 100 unique companies,
+and sometimes there are close to 100 unique companies (like 97 or 99)"
+
+Your mission, should you choose to accept it, is to find and fix the bug.
+
+Oh, and the previous developer wrote no tests...
 
 ## Examples
 
-Show concrete examples
+If you throw this code into a file in your bin directory and run it,
+you will see that all the company names are unique:
 
-# Extra
+```ruby
+require_relative 'lib/generator'
+require 'pp'
 
-Add extra challenges here.
+pp Generator.new(4).generate
+```
 
 # Setup
 
