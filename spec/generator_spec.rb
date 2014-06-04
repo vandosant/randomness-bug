@@ -1,6 +1,5 @@
 require 'rspec'
 require_relative '../lib/generator'
-require 'pp'
 
 describe 'Generator' do
   it 'creates as many people as the length' do
@@ -18,11 +17,11 @@ describe 'Generator' do
   end
 
   it 'creates a list of people and their companies' do
-    generator_test = Generator.new(100).generate
+    generator_test = Generator.new(10).generate
 
-    expect(generator_test.length).to eq 100
+    expect(generator_test.length).to eq 10
     expect(generator_test).to eq generator_test.uniq
 
-    expect(generator_test.map{ |ary| ary[2] }.uniq.length).to eq 50
+    expect(generator_test.map{ |ary| ary[2] }.uniq.length).to eq 5
   end
 end

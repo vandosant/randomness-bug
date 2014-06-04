@@ -21,15 +21,14 @@ class Generator
 
   def generate
     i = 0
-    result = []
-    people.each do |person|
-      if result.map{ |ary| ary[2] }.count(companies[i]) <= 1
-        person_with_company = person << companies[i]
-        result << person_with_company
+    @companies = companies
+    people.map do |person|
+      if i == @companies.length-1
+        i = 0
+        person << @companies[i]
       else
         i += 1
-        person_with_company = person << companies[i]
-        result << person_with_company
+        person << @companies[i]
       end
     end
   end
