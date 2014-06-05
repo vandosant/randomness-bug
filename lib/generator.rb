@@ -21,14 +21,14 @@ class Generator
 
   def generate
     i = 0
-    @companies = companies
+    company_list = companies
     people.map do |person|
-      if i == @companies.length-1
+      if i == company_list.length-1
         i = 0
-        person << @companies[i]
+        person << company_list[i]
       else
         i += 1
-        person << @companies[i]
+        person << company_list[i]
       end
     end
   end
